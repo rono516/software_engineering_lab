@@ -69,106 +69,114 @@
 
 
     <!-- CARD COLUMNS -->
-    <div class="grid grid-cols-3 gap-3">
+    <div class="container mt-5 mx-auto px-2">
         <!-- Flex on med screens and up -->
         <div class="md:flex">
             <div
-                class="flex-1 text-gray-700 text-center bg-gray-400 px-5 py-5 m-2 rounded"
-            >
+                class="flex-1 text-gray-700 text-center bg-gray-400 px-5 py-5 m-2 rounded">
                 <div class="lg:flex lg:items-center">
                     <div class="lg:flex-shrink-0">
                         <img class="rounded-lg lg:w-64" src="https://i.ibb.co/mJJNkTJ/img2.jpg" alt="" />
                     </div>
                     <div class="mt-4 lg:mt-0 lg:ml-6">
                         <div
-                            class="uppercase tracking-wide text-sm text-indigo-600 font-bold"
-                        >
-                            Networkings
+                            class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
+
+                            Networking
                         </div>
                         <a
                             href="#"
                             class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
-                        >Learn about networking and technologies around it</a
-                        >
+                        >Finding connections to help your business grow</a>
+                        <div
+                            class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
+
+                         <h3>Price: Ksh.500s </h3>  <button class="btn-primary">Take the course</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div
-                class="flex-1 text-gray-700 text-center bg-gray-400 px-5 py-5 m-2 rounded"
-            >
+                class="flex-1 text-gray-700 text-center bg-gray-400 px-5 py-5 m-2 rounded">
+
                 <div class="lg:flex lg:items-center">
                     <div class="lg:flex-shrink-0">
-                        <img class="rounded-lg lg:w-64" src="https://i.ibb.co/w4wGYvQ/img1.jpg
-" alt="" />
+                        <img class="rounded-lg lg:w-64" src="https://i.ibb.co/w4wGYvQ/img1.jpg" alt="" />
+
                     </div>
                     <div class="mt-4 lg:mt-0 lg:ml-6">
                         <div
-                            class="uppercase tracking-wide text-sm text-indigo-600 font-bold"
-                        >
+                            class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
+
                             Marketing
                         </div>
-                        <a
-                            href="#"
-                            class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
-                        >Learn Entrepreneurship and marketing skills</a
-                        >
+                        <a href="#" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">
+
+
+                        Finding customers for your new business</a>
+
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <!-- Third card -->
+
+    <h1 class="text-3xl text-gray-500 p-4 font-bold">
+        Checkout our free courses
+    </h1>
 
 
-
+    <div class="container mt-5 mx-auto px-2">
+        <!-- Flex on med screens and up -->
+        <div class="md:flex">
+            <div
+                class="flex-1 text-gray-700 text-center bg-gray-400 px-5 py-5 m-2 rounded">
                 <div class="lg:flex lg:items-center">
                     <div class="lg:flex-shrink-0">
-                        <img class="rounded-lg lg:w-64" src="https://i.ibb.co/w4wGYvQ/img1.jpg
-" alt="" />
+                        <img class="rounded-lg lg:w-64" src="https://i.ibb.co/mJJNkTJ/img2.jpg" alt="" />
                     </div>
                     <div class="mt-4 lg:mt-0 lg:ml-6">
                         <div
-                            class="uppercase tracking-wide text-sm text-indigo-600 font-bold"
-                        >
-                            Marketing2
+                            class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
+
+                            Networking
                         </div>
                         <a
                             href="#"
                             class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
-                        >Learn Entrepreneurship and marketing skills</a
-                        >
+                        >Finding connections to help your business grow</a>
+                        <div
+                            class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
+
+                            <h3>Price: Ksh.500</h3>  <button class="btn-primary">Take the course</button>
+                        </div>
+
                     </div>
                 </div>
-
-
-
-                <!-- end third card -->
-
-
-                <!-- Fourth card -->
-
+            </div>
+            <div
+                class="flex-1 text-gray-700 text-center bg-gray-400 px-5 py-5 m-2 rounded">
 
                 <div class="lg:flex lg:items-center">
                     <div class="lg:flex-shrink-0">
-                        <img class="rounded-lg lg:w-64" src="https://i.ibb.co/w4wGYvQ/img1.jpg
-" alt="" />
+                        <img class="rounded-lg lg:w-64" src="https://i.ibb.co/w4wGYvQ/img1.jpg" alt="" />
+
                     </div>
                     <div class="mt-4 lg:mt-0 lg:ml-6">
                         <div
-                            class="uppercase tracking'][]\\-wide text-sm text-indigo-600 font-bold"
-                        >
-                            Marketing3
+                            class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
+
+                            Marketing
                         </div>
-                        <a
-                            href="#"
-                            class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
-                        >Learn Entrepreneurship and marketing skills</a
-                        >
+                        <a href="#" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">
+
+
+                            Finding customers for your new business</a>
+
                     </div>
                 </div>
-
-
-
-                <!-- end third card -->
-
             </div>
         </div>
     </div>
