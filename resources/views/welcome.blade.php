@@ -42,20 +42,39 @@
                 About
             </a>
         </div>
+        @auth
+        <div>
+            <a
+                href="#" 
+                class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0"
+            >{{Auth()->user()->name}}</a
+            >
+        </div>
+        <div>
+            <a
+                href="{{url('logout')}}" 
+                class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0"
+            >Logout</a
+            >
+        </div>
+        @endauth
+        @guest
 		 <div class="mr-5">
             <a
-                href="#"
+                href="{{url('register')}}"
                 class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0"
             >Register</a
             >
         </div>
         <div>
             <a
-                href="#"
+                href="{{url('login')}}" 
                 class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0"
             >Login</a
             >
         </div>
+
+        @endguest
 
     </div>
 </nav>
