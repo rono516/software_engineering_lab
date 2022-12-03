@@ -42,6 +42,15 @@
                 About
             </a>
         </div>
+        @if(Auth()->user()->user_group == "1" || Auth()->user()->user_group == "2")
+        <div>
+            <a
+                href="{{url('/dashboard')}}" 
+                class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0"
+            >Access DashBoard</a
+            >
+        </div>
+        @endif
         @auth
         <div>
             <a
