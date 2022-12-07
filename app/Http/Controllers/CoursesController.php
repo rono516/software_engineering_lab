@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -11,16 +12,45 @@ class CoursesController extends Controller
     }
 
     public function store(Request $request){
-        $validData = $request->validate([
-            'title' => 'required',
-            'short_description' => 'required',
-            'price' => 'required',
-            'image_url' => 'required'
+        $course = new Course();
+        $course->title = $request->input('title');
+        $course->short_description = $request->input('short_description');
+        $course->price = $request->input('price');
+        $course->image_url = $request->input('image_url');
+        $course->user_id = auth()->user()->id;
+        $course->save();
+        return redirect('/dashboard');
+
+    }
+
+    public function edit(Request $request, $id){
+        $course = Course::find($id);
+        return view('courses.edit')->with([
+            'course' => $course
+        ]);
+    }
+
+    public function update(Request $request, $id){
+        $course = Course::find($id);
+        $course->title = $request->input('title');
+        $course->short_description = $request->input('short_description');
+        $course->price = $request->input('price');
+        $course->image_url = $request->input('image_url');
+        $course->user_id = auth()->user()->id;
+        $course->update();
+
+        return redirect('/dashboard');
+
+
+    }
+
+    public function delete(Request $request, $id){
+        $this->validate($request, [
+            'id' => 'required|exists:courses,id',
         ]);
 
-        $validData['user_id'] = auth()->user()->id;
-
-        Course::create($validData);
+        $course = Course::find($id);
+        $course->delete();
 
         return redirect('/dashboard');
 

@@ -10,27 +10,29 @@
             <div class="card-header card-header-rose card-header-icon">
             </div>
             <div class="card-body ">
-              <form method="POST" action="{{url('/courses/store')}}">
+              <form method="POST" action="{{route('courses.update',['id' => $course->id])}}">
+                {{-- courses.edit', ['id' => $course->id --}}
                 @csrf
+                {{-- <input type="hidden" name="course_id" value="{{$course->id}}"> --}}
                 <div class="form-group">
                   <label for="title" class="bmd-label-floating">Course title</label>
-                  <input type="text" name="title" class="form-control" id="title">
+                  <input type="text" value="{{$course->title}}" name="title" class="form-control" id="title">
                 </div>
                 <div class="form-group">
                   <label for="short_description" class="bmd-label-floating">Short description</label>
-                  <input type="text" name="short_description" class="form-control" id="short_description">
+                  <input type="text" value="{{$course->short_description}}" name="short_description" class="form-control" id="short_description">
                 </div>
                 <div class="form-group">
                   <label for="price" class="bmd-label-floating">Price</label>
-                  <input type="number" name="price" class="form-control" id="price">
+                  <input type="number" value="{{$course->price}}" name="price" class="form-control" id="price">
                 </div>
                 <div class="form-group">
                   <label for="image_url" class="bmd-label-floating">Image Url</label>
-                  <input type="text" name="image_url" class="form-control" id="image_url">
+                  <input type="text" value="{{$course->image_url}}" name="image_url" class="form-control" id="image_url">
                 </div>
 
                 <div class="card-footer ">
-                  <button type="submit" class="btn btn-fill btn-gray">Add Course</button>
+                  <button type="submit" class="btn btn-fill btn-gray">Update course</button>
                 </div>
                 
               </form>

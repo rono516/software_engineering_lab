@@ -26,6 +26,7 @@
                       <th> Short description </th>
                       <th> Price </th>
                       <th> Lecturer </th>
+                      <th>Actions</th>
                     </thead>
                     <tbody>
                       @foreach ($courses as $index => $course)
@@ -37,6 +38,11 @@
                            <td> {{$course->short_description}}</td>
                            <td> {{$course->price}} </td>
                            <td> {{App\Models\User::where('id', '=', $course->user_id)->firstOrFail()->name}}</td>
+                           <td class="text-end">
+                            <a href="{{ route('courses.delete', ['id' => $course->id]) }}" class="text-danger text-decoration-none">Delete</a>
+                            -
+                            <a href="{{route('courses.edit', ['id' => $course->id])}}" class="text-decoration-none">Edit</a>
+                        </td>
                          </tr>
 
                       @endforeach

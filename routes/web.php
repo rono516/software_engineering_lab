@@ -33,6 +33,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('perm:1');
     Route::get('/courses/create', [CoursesController::class, 'create'])->name('courses.create');
+    Route::get('/courses/edit/{id}',[CoursesController::class, 'edit'])->name('courses.edit');
+    Route::post('/courses/update/{id}', [CoursesController::class, 'update'])->name('courses.update');
+    Route::post('/courses/delete/{id}', [CoursesController::class, 'delete'])->name('courses.delete');
     Route::get('/students/view', [StudentController::class, 'index'])->name('students.view');
-    Route::post('/courses/store', [CoursesController::class, 'store'])->name('courses.store');
+    Route::post('/courses/store', [CoursesController::class, 'store']);
  });

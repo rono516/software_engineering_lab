@@ -16,6 +16,7 @@ class Course extends Model
         'price',
         'image_url',
         'user_id',
+
     ];
 
     public function user(){
