@@ -20,9 +20,10 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [HomeController::class, 'root']);
 
 Auth::routes();
 Route::get('/logout',[LoginController::class, 'logout']);
@@ -35,7 +36,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/courses/create', [CoursesController::class, 'create'])->name('courses.create');
     Route::get('/courses/edit/{id}',[CoursesController::class, 'edit'])->name('courses.edit');
     Route::post('/courses/update/{id}', [CoursesController::class, 'update'])->name('courses.update');
-    Route::post('/courses/delete/{id}', [CoursesController::class, 'delete'])->name('courses.delete');
+    Route::post('/courses/delete', [CoursesController::class, 'delete'])->name('courses.delete');
     Route::get('/students/view', [StudentController::class, 'index'])->name('students.view');
     Route::post('/courses/store', [CoursesController::class, 'store']);
+    Route::post('start_course/{id}',[HomeController::class, 'start']);
+    Route::get('/my_courses', [HomeController::class, 'my_courses']);
  });

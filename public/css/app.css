@@ -617,12 +617,20 @@ video {
   margin-bottom: 0px;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .block {
   display: block;
 }
 
 .inline-block {
   display: inline-block;
+}
+
+.inline {
+  display: inline;
 }
 
 .flex {
@@ -807,6 +815,10 @@ video {
 
 .text-center {
   text-align: center;
+}
+
+.text-end {
+  text-align: end;
 }
 
 .align-baseline {

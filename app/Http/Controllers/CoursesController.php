@@ -44,12 +44,12 @@ class CoursesController extends Controller
 
     }
 
-    public function delete(Request $request, $id){
+    public function delete(Request $request){
         $this->validate($request, [
-            'id' => 'required|exists:courses,id',
+            'course_id' => 'required|exists:courses,id',
         ]);
 
-        $course = Course::find($id);
+        $course = Course::find($request->course_id);
         $course->delete();
 
         return redirect('/dashboard');

@@ -39,9 +39,16 @@
                            <td> {{$course->price}} </td>
                            <td> {{App\Models\User::where('id', '=', $course->user_id)->firstOrFail()->name}}</td>
                            <td class="text-end">
-                            <a href="{{ route('courses.delete', ['id' => $course->id]) }}" class="text-danger text-decoration-none">Delete</a>
+                            <a  href="{{route('courses.edit', ['id' => $course->id])}}" class="text-decoration-none">Edit</a>
                             -
-                            <a href="{{route('courses.edit', ['id' => $course->id])}}" class="text-decoration-none">Edit</a>
+                            {{-- <a href="{{ route('courses.delete', ['id' => $course->id]) }}" class="text-danger text-decoration-none">Delete</a> --}}
+                            <form action="{{route('courses.delete')}}" style="display: inline;" method="POST">
+                                @csrf
+                               <input type="hidden" name="course_id" value="{{$course->id}}">
+                               <button class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                             
+                            
                         </td>
                          </tr>
 

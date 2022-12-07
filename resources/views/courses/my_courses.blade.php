@@ -24,7 +24,7 @@
                 All Courses
             </a>
             <a
-                href="{{url('/my_courses')}}"
+                href="#"
                 class="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-gray-100 mr-4"
             >
                 My Courses
@@ -90,71 +90,6 @@
 </nav>
 
 <div class="container mt-5 mx-auto px-2">
-
-
-  <h1 class="text-3xl text-gray-500 p-4 font-bold">
-    Checkout our new courses
-  </h1>
-
-
-    <!-- CARD COLUMNS -->
-    <div class="container mt-5 mx-auto px-2">
-        <!-- Flex on med screens and up -->
-        <div class="md:flex">
-
-          @foreach ($courses as $course)
-
-            {{-- start first course --}}
-            <div class="flex-1 text-gray-700 text-center bg-gray-400 px-5 py-5 m-2 rounded">
-              
-              <div class="bg-gray-100 shadow-md hover:scale-105 hover:shadow-xl duration-500">
-                  <a href="#">
-                    <img src="{{$course->image_url}}" alt="Product image" class="object-cover" />
-                  </a>
-                  <div class="px-4 py-3 w-72">
-                    <span class="text-gray-400 uppercase text-xs">{{$course->title}}</span>
-                    <p  class="text-lg  text-black ">{{$course->short_description}}</p>
-                    <div class="flex items-center">
-
-                      @if ($course->price > 0)
-                          <p class="text-lg font-semibold text-black cursor-auto my-3">Price: Ksh. {{$course->price}}</p>
-                      @else
-                      <p class="text-lg font-semibold text-black cursor-auto my-3">Free Course</p>
-                          
-                      @endif
-                    
-                    
-                      <div class="ml-auto text-black-200">
-                        {{-- <a href="#">
-                         
-                          Start Course
-                        </a> --}}
-                        <form action="{{url('start_course',$course->id)}}" method="POST">
-                          @csrf
-                          <input type="hidden" name="course_id" value="{{$course->id}}">
-                          <button class="bg-gray-400" class="">Register for Course</button>
-                         
-                      </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>   
-
-          </div>
-          {{-- end first  course --}}
-              
-          @endforeach
-
-        </div>
-    </div>
-   
-    <div class="flex flex-col items-center mt-5">
-        <button style="align-items: center" class="w-1/2 bg-gray-500 hover:bg-gray-700 text-teal-200 font-bold py-2 px-4 rounded-full">
-            View All Courses
-          </button>
-    </div>
-      
-
 
       <h1 class=" ml-7 text-3xl text-gray-500 p-4 font-bold">
         My Courses
@@ -238,19 +173,13 @@
                   </div>   
 
             </div>
-            {{-- end first  course --}}
+
+            {{-- end first course  --}}
+         
         </div>
       </div>
 
-    <div class="flex flex-col items-center mt-5 mb-5">
-        <button style="align-items: center" class="w-1/2 bg-gray-500 hover:bg-gray-700 text-teal-200 font-bold py-2 px-4 rounded-full">
-            View all my courses
-          </button>
-    </div>
-
-    <!-- FOOTER COMPONENT -->
-
-   
+  
 <footer class="p-4 bg-gray-800 rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
     <div class="sm:flex sm:items-center sm:justify-between">
         <a href="#" class="flex items-center mb-4 sm:mb-0">
