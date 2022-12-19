@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UsersSeeder extends Seeder
 {
@@ -22,25 +21,23 @@ class UsersSeeder extends Seeder
 
         $user = new User();
         $user->user_group = 1; //super admin
-        $user->name = "Lms Admin";
-        $user->email = "lms@admin.com";
-        $user->password = bcrypt("password");
+        $user->name = 'Lms Admin';
+        $user->email = 'lms@admin.com';
+        $user->password = bcrypt('password');
         $user->save();
-
 
         $user = new User();
         $user->user_group = 2; //Lecturer
-        $user->name = "Lms Lecturer";
-        $user->email = "lms@lecturer.com";
-        $user->password = bcrypt("password");
+        $user->name = 'Lms Lecturer';
+        $user->email = 'lms@lecturer.com';
+        $user->password = bcrypt('password');
         $user->save();
 
         $user = new User();
         $user->user_group = 3;
-        $user->name = "Lms Student";
-        $user->email = "lms@student.com";
-        $user->password = bcrypt("password");
+        $user->name = 'Lms Student';
+        $user->email = 'lms@student.com';
+        $user->password = bcrypt('password');
         $user->save();
-
     }
 }

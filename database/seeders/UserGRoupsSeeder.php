@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\UserGroup;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserGRoupsSeeder extends Seeder
 {
@@ -19,7 +18,6 @@ class UserGRoupsSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('user_groups')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-
 
         //1
         $userGroup = new UserGroup();

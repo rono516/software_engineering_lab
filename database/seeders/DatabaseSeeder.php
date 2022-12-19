@@ -4,9 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Database\Seeders\UsersSeeder;
-use Database\Seeders\UserGRoupsSeeder;
-use Database\Seeders\PermissionsSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserGRoupsSeeder::class);
         $this->call(UsersSeeder::class);
         $this->call(CoursesSeeder::class);
+        $this->call(ModulesSeeder::class);
     }
 }

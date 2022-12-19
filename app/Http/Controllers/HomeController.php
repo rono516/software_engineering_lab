@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
-use Illuminate\Http\Request;
 use App\Models\CourseStudent;
+use App\Models\Module;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -29,16 +30,19 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function root(){
+    public function root()
+    {
         $courses = Course::orderBy('created_at', 'desc')->take(3)->get();
-     
+        $coursesStudent = CourseStudent::orderBy('created_at', 'desc')->take(3)->where('user_id', '=', Auth::id())->get();
+
         return view('welcome')->with([
-            'courses' => $courses
+            'courses' => $courses,
+            'coursesStudent' => $coursesStudent,
         ]);
     }
 
-    public function start($id){
-
+    public function start($id)
+    {
         $course = Course::find($id);
 
         $courseStudent = new CourseStudent();
@@ -47,19 +51,51 @@ class HomeController extends Controller
         $courseStudent->save();
 
         return redirect('/my_courses');
-       
-
     }
 
-
-    public function my_courses(){
-        $courseStudent = CourseStudent::all(); 
-        // $coursesStudent = CourseStudent::orderBy('id', 'DESC')->where('user_id', Auth::id())->first();
-        // $courses = Course::all()->where('id', '=', $courseStudent->course_id);
-        dd($courseStudent->courses->count());
+    public function my_courses()
+    {
+        $done_modules = DB::table('progress_student')->get();
+        $coursesStudent = CourseStudent::where('user_id', '=', Auth::id())->get();
+        // $my_courses = Course::where('id', '=', $coursesStudent->course_id)->get();
         return view('courses.my_courses')->with([
-            // 'coursesStudent' => $coursesStudent,
-            // 'courses' => $courses
+            'coursesStudent' => $coursesStudent,
+            'done_modules' => $done_modules,
+            // 'my_courses' => $my_courses
+        ]);
+    }
+
+    public function all_courses()
+    {
+        $courses = Course::all();
+
+        return view('all_courses')->with([
+            'courses' => $courses,
+        ]);
+    }
+
+    public function course_detail($id)
+    {
+        $course = Course::find($id);
+        $modules = Module::where('course_id', '=', $course->id)->get();
+
+        return view('courses.course_detail')->with([
+            'course' => $course,
+            'modules' => $modules,
+        ]);
+    }
+
+    public function module_view($id)
+    {
+        $module = Module::find($id);
+        $course = Course::where('id', '=', $module->course_id)->first();
+        if (Auth::check()) {
+            $module->students()->attach(Auth::id());
+        }
+
+        return view('modules.index')->with([
+            'module' => $module,
+            'course' => $course,
         ]);
     }
 }

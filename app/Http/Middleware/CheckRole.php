@@ -17,10 +17,10 @@ class CheckRole
     public function handle(Request $request, Closure $next, $permissions)
     {
         //[1,2,3]
-        $permissions = explode(',',$permissions);
+        $permissions = explode(',', $permissions);
 
         return $request->user()->role->has_perm($permissions)
             ? $next($request)
-            : abort(403,"You do not have permissions to access this resource");
+            : abort(403, 'You do not have permissions to access this resource');
     }
 }

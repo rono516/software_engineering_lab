@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
-use Illuminate\Http\Request;
+use App\Models\Module;
 
 class DashboardController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $courses = Course::where('user_id', '=', Auth()->user()->id)->get();
+        $modules = Module::where('user_id', '=', Auth()->user()->id)->get();
+
         return view('dashboard')->with([
-            'courses' => $courses
+            'courses' => $courses,
+            'modules' => $modules,
         ]);
     }
 }
